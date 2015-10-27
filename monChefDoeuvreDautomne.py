@@ -7,9 +7,22 @@ Oct 23 2015
 This program creates a drawing using the Python Turtle Graphics module.
 """
 
+"""
+> 20 shapes
+> 6 colors
+5 for loops
+4 functions that have parameters
+1 fruitful function
+3 void functions
+
+"""
+
+
+
 import turtle as t
 from turtle import *
 from math import *
+import math
 
 def drawShape(fillColor, positionx, positiony, colorOfPen, shapeType):
     t.penup()
@@ -55,6 +68,22 @@ def drawDecagon():
     for i in range(10):
         t.left(36)
         t.forward(200)
+
+
+"""
+t.shape("turtle")
+for i in range(100):
+    t.left(math.sqrt(i))
+    t.forward(5)
+
+t.shape("turtle")
+for i in range(100):
+    t.left(90)
+    t.forward(math.sqrt(i))
+    t.right(90)
+    t.forward(i)
+"""
+
 
 drawShape('blue', 100, -250, 'orange', 'decagon')
 drawShape('pink', 25, -12.5, 'black', 'octagon')
