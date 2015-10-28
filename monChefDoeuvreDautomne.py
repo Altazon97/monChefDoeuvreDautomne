@@ -24,9 +24,10 @@ from turtle import *
 from math import *
 import math
 
-def drawShape(fillColor, positionx, positiony, colorOfPen, shapeType):
+def drawShape(shapeType, size, fillColor, colorOfPen, positionx = None, positiony = None):
     t.penup()
-    t.setpos(positionx, positiony)
+    if positionx != None and positiony != None:
+        t.setpos(positionx, positiony)
     t.pendown()
     t.begin_fill()
     t.pencolor(colorOfPen)
@@ -44,53 +45,65 @@ def drawShape(fillColor, positionx, positiony, colorOfPen, shapeType):
     t.end_fill()
 
 def drawCircle():
-    t.circle(50)
+    t.circle(size)
 
 def drawTriangle():
     for i in range(3):
-        t.forward(100)
+        t.forward(size)
         t.right(120)
 
 def drawOctagon():
     for i in range(8):
         t.left(45)
-        t.forward(50)
+        t.forward(size)
 
 def drawRectangle():
     for i in range(2):
-        t.forward(100)
+        t.forward(size)
         t.left(90)
-        t.forward(50)
+        t.forward(size)
         t.left(90)
-        t.forward(100)
+        t.forward(size)
 
 def drawDecagon():
     for i in range(10):
         t.left(36)
-        t.forward(200)
+        t.forward(size)
 
+def drawCurl():
+    for i in range(100):
+        t.left(math.sqrt(i))
+        t.forward(5)
+
+
+def drawLine(length = 50, direction = 0, colour = 'black'):
+    t.pencolor(colour)
+    t.left(direction)
+    t.forward(length)
+
+def pos(x, y):
+    t.penup()
+    t.setpos(x, y)
+    t.pendown()
+
+#MAIN
+t.begin_fill()
+pos(-300, -300)
+drawLine(100, 45)
+drawLine(25, -60)
+drawLine(25, 60)
+drawLine(115, -180)
+drawLine(30, -45)
+t.color('gray')
+t.end_fill()
 
 """
-t.shape("turtle")
-for i in range(100):
-    t.left(math.sqrt(i))
-    t.forward(5)
-
-t.shape("turtle")
-for i in range(100):
+for i in range(50):
     t.left(90)
     t.forward(math.sqrt(i))
     t.right(90)
     t.forward(i)
 """
-
-
-drawShape('blue', 100, -250, 'orange', 'decagon')
-drawShape('pink', 25, -12.5, 'black', 'octagon')
-drawShape('yellow', 0, 0, "black", 'circle')
-drawShape('red', -50, 150, 'green', 'triangle')
-drawShape('orange', 100, 100, 'pink', 'rectangle')
-
 
 #display the work of art
 done()
