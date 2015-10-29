@@ -97,6 +97,7 @@ def pos(x, y):
     t.pendown()
 
 #MAIN
+t.pensize(5)
 pos(-350, -350)
 t.begin_fill()
 drawLine(100, 45)
@@ -115,7 +116,19 @@ drawLine(112, -40)
 t.color('green')
 t.end_fill()
 
+pos(-20, 47)
+t.pencolor('black')
+t.begin_fill()
+t.right(39.5)
+t.circle(250, 70)
+drawCurl(20, 5, +1)
+drawCurl(15, 20, +1)
+t.fillcolor('#c289d3')
+t.end_fill()
+
 pos(-140, -325)
+t.left(236)
+t.begin_fill()
 drawCurl(15)
 drawParabola(11)
 t.left(-80)
@@ -125,9 +138,47 @@ t.left(215)
 drawParabola(8, +1)
 drawCurl(25, 1, +1)
 t.right(90)
-drawCurl(5, +1)
+drawCurl(5, 1)
+drawCurl(24, 11.7)
+t.fillcolor('#40E0D0')
+t.end_fill()
 
-#get the last of this face done!
+pos(-262, 35)
+drawCurl(20, 3, +1)
+drawCurl(15, 12, +1)
+drawCurl(5, 23, +1)
+drawLine(9)
+
+pos(-22, 47)
+drawLine(250, -40)
+drawLine(50, -80)
+pos(-220, -30)
+t.left(120)
+drawCurl(40, 4, +1)
+
+pos(-60, -120)
+t.left(-170)
+t.circle(25, 160)
+
+
+#oulining the lighter green fill area
+t.left(218)
+pos(-140, -325)
+t.left(236)
+drawCurl(15)
+drawParabola(11)
+t.left(-80)
+drawCurl(10, 20)
+t.circle(50, 50)
+t.left(215)
+drawParabola(8, +1)
+drawCurl(25, 1, +1)
+t.right(90)
+drawCurl(5, 1)
+drawCurl(24, 11.7)
+
+
+#fill color to use later: #ceefee
 
 
 #display the work of art
