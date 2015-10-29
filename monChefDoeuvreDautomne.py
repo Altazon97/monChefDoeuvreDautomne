@@ -17,8 +17,6 @@ This program creates a drawing using the Python Turtle Graphics module.
 
 """
 
-
-
 import turtle as t
 from turtle import *
 from math import *
@@ -70,16 +68,23 @@ def drawDecagon():
         t.left(36)
         t.forward(size)
 
-def drawCurl():
-    for i in range(100):
-        t.left(math.sqrt(i))
-        t.forward(5)
+def drawCurl(size, direction = 'forward'):
+    for i in range(size):
+        t.left(-1 * math.sqrt(i))
+        if direction == 'forward':
+            t.forward(5)
+        elif direction == 'backward':
+            t.backward(5)
 
-
-def drawLine(length = 50, direction = 0, colour = 'black'):
-    t.pencolor(colour)
+def drawLine(length = 50, direction = 0):
+    t.pencolor('black')
     t.left(direction)
     t.forward(length)
+
+def drawParabola(size):
+    for i in range(size):
+        t.left(-1 * i)
+        t.forward(math.pow(i, 2))
 
 def pos(x, y):
     t.penup()
@@ -87,15 +92,29 @@ def pos(x, y):
     t.pendown()
 
 #MAIN
+
+
 t.begin_fill()
 pos(-300, -300)
 drawLine(100, 45)
 drawLine(25, -60)
-drawLine(25, 60)
-drawLine(115, -180)
+drawLine(110, 60)
+drawLine(200, -180)
 drawLine(30, -45)
 t.color('gray')
 t.end_fill()
+t.begin_fill()
+drawLine(200, 180)
+drawLine(70, 60)
+t.left(100)
+t.color('red')
+t.end_fill()
+
+pos(-40, -250)
+drawCurl(15)
+drawParabola(10)
+
+
 
 """
 for i in range(50):
