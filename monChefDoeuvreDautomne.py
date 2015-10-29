@@ -68,22 +68,27 @@ def drawDecagon():
         t.left(36)
         t.forward(size)
 
-def drawCurl(size, direction = 'forward'):
-    for i in range(size):
-        t.left(-1 * math.sqrt(i))
-        if direction == 'forward':
-            t.forward(5)
-        elif direction == 'backward':
-            t.backward(5)
-
-def drawLine(length = 50, direction = 0):
+def drawCurl(size, bend = 1, direction = -1):
     t.pencolor('black')
+    for i in range(size):
+        t.left(direction * math.sqrt(i))
+        t.forward(bend)
+
+def drawCurve():  #square root function
+    for i in range(50):
+        t.left(90)
+        t.forward(math.sqrt(i))
+        t.right(90)
+        t.forward(i)
+
+def drawLine(length, direction = 0, color='black', width = 1):
+    t.pencolor(color)
     t.left(direction)
     t.forward(length)
 
-def drawParabola(size):
+def drawParabola(size, direction = -1):
     for i in range(size):
-        t.left(-1 * i)
+        t.left(direction * i)
         t.forward(math.pow(i, 2))
 
 def pos(x, y):
@@ -92,37 +97,38 @@ def pos(x, y):
     t.pendown()
 
 #MAIN
-
-
+pos(-350, -350)
 t.begin_fill()
-pos(-300, -300)
 drawLine(100, 45)
-drawLine(25, -60)
-drawLine(110, 60)
-drawLine(200, -180)
-drawLine(30, -45)
+drawLine(30, -60)
+drawLine(89, -120)
+drawLine(37, -45)
 t.color('gray')
 t.end_fill()
+
+pos(-250, -288)
 t.begin_fill()
-drawLine(200, 180)
-drawLine(70, 60)
-t.left(100)
-t.color('red')
+drawLine(50, -150)
+drawLine(70, -80, "")
+drawLine(52, -90)
+drawLine(112, -40)
+t.color('green')
 t.end_fill()
 
-pos(-40, -250)
+pos(-140, -325)
 drawCurl(15)
-drawParabola(10)
+drawParabola(11)
+t.left(-80)
+drawCurl(10, 20)
+t.circle(50, 50)
+t.left(215)
+drawParabola(8, +1)
+drawCurl(25, 1, +1)
+t.right(90)
+drawCurl(5, +1)
 
+#get the last of this face done!
 
-
-"""
-for i in range(50):
-    t.left(90)
-    t.forward(math.sqrt(i))
-    t.right(90)
-    t.forward(i)
-"""
 
 #display the work of art
 done()
