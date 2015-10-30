@@ -97,6 +97,9 @@ def pos(x, y):
     t.pendown()
 
 #MAIN
+t.bgcolor("#b27e1e")
+
+#shoulder in the corner
 t.pensize(5)
 pos(-350, -350)
 t.begin_fill()
@@ -107,15 +110,29 @@ drawLine(37, -45)
 t.color('gray')
 t.end_fill()
 
+#more hands
 pos(-250, -288)
 t.begin_fill()
 drawLine(50, -150)
 drawLine(70, -80, "")
 drawLine(52, -90)
 drawLine(112, -40)
-t.color('green')
+t.fillcolor('#315e27')
 t.end_fill()
 
+#draw the stuff on the bottom
+t.right(175)
+pos(-205, -350)
+t.begin_fill()
+drawLine(70, -5)
+drawLine(110, 20)
+drawLine(45, 90)
+drawLine(125, 92)
+drawLine(50, 18)
+t.fillcolor('#40E0D0')
+t.end_fill()
+
+t.left(320)
 pos(-20, 47)
 t.pencolor('black')
 t.begin_fill()
@@ -126,6 +143,7 @@ drawCurl(15, 20, +1)
 t.fillcolor('#c289d3')
 t.end_fill()
 
+#draw the face outline and fill it
 pos(-140, -325)
 t.left(236)
 t.begin_fill()
@@ -156,7 +174,7 @@ pos(-220, -30)
 t.left(120)
 drawCurl(40, 4, +1)
 
-#begin oulining the same area again, to fill for lighter green
+#begin oulining the same area again, to fill for lighter green!
 t.pencolor("")
 t.left(208)
 pos(-140, -325)
@@ -188,13 +206,34 @@ t.left(-260)
 t.circle(25, 160)
 
 #fill under the nose
-t.begin_fill()
-t.pensize(3)
 pos(-150, -183)
+t.begin_fill()
 drawLine(135, 205, "")
 drawLine(130, 155, "")
-drawLine(53, 100, "")
+drawLine(55, 100, "")
 t.fillcolor("#ceefee")
+t.end_fill()
+
+
+#draw the mouth
+t.pencolor('black')
+pos(-165,-230)
+t.right(185)
+t.pensize(7)
+drawParabola(6, +1)
+pos(-155,-245)
+t.right(7)
+t.pensize(3)
+drawParabola(5, +1)
+
+#finish up the bottom now
+t.pensize(5)
+pos(-170, -350)
+t.begin_fill()
+drawLine(160, -5)
+drawLine(45, 120)
+drawLine(110, 80)
+t.fillcolor('#40E0D0')
 t.end_fill()
 
 #display the work of art
