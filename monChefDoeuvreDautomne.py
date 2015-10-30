@@ -1,20 +1,14 @@
 """
-monChefDoeuvreDautomne.py,
+monChefDoeuvreDautomne.py
 
-Eric Sund
-Oct 23 2015
+Eric Sund   301284359
+Andy Zeng   301221527
 
-This program creates a drawing using the Python Turtle Graphics module.
-"""
+Oct 30 2015
 
-"""
-> 20 shapes
-> 6 colors
-5 for loops
-4 functions that have parameters
-1 fruitful function
-3 void functions
-
+This program uses the Python Turtle Graphics Module in an attempt to draw a truncated version of Picasso's "Deux Enfants Lisant" painting.
+The drawing will only feature the shoulders up, as shown in this image:
+http://www.lsa.umich.edu/UMICH/lsa/Home/LSA%20Today/2013/images/Picasso-1.jpg
 """
 
 import turtle as t
@@ -120,18 +114,18 @@ t.bgcolor("#b27e1e")
 
 #begin drawing the left girl - coded by Eric
 
-t.speed(50)
+t.speed(10)
 t.shape("turtle")
 
 #Prepare an area for colour fill at the end
 pos(-25, 50)
-t.pencolor("") #outline the fill colour area
+t.pencolor("")  #outline the fill colour area
 t.begin_fill()
 drawSquare(200)
 t.fillcolor("#ceefee")
 t.end_fill()
 
-#shoulder in the corner
+#shoulder in the left corner
 t.pensize(5)
 pos(-350, -350)
 t.begin_fill()
@@ -142,7 +136,7 @@ drawLine(37, -45)
 t.color('gray')
 t.end_fill()
 
-#more hands
+#draw the hand of the right girl on the left side
 pos(-250, -288)
 t.begin_fill()
 drawLine(50, -150)
@@ -152,7 +146,7 @@ drawLine(112, -40)
 t.fillcolor('#698066')
 t.end_fill()
 
-#draw the stuff on the bottom
+#draw the the neck of the left girl on the bottom
 t.right(175)
 pos(-205, -350)
 t.begin_fill()
@@ -163,7 +157,6 @@ drawLine(125, 92)
 drawLine(50, 18)
 t.fillcolor('#40E0D0')
 t.end_fill()
-
 t.left(320)
 pos(-20, 47)
 t.pencolor('black')
@@ -175,7 +168,7 @@ drawCurl(15, 20, +1)
 t.fillcolor('#c289d3')
 t.end_fill()
 
-#draw the face outline and fill it
+#draw the head outline, and fill it at the end
 pos(-140, -325)
 t.left(236)
 t.begin_fill()
@@ -192,13 +185,11 @@ drawCurl(5, 1)
 drawCurl(24, 11.7)
 t.fillcolor('#40E0D0')
 t.end_fill()
-
 pos(-262, 35)
 drawCurl(20, 3, +1)
 drawCurl(15, 12, +1)
 drawCurl(5, 23, +1)
 drawLine(9)
-
 pos(-22, 47)
 drawLine(250, -40)
 drawLine(50, -80)
@@ -228,25 +219,24 @@ drawCurl(24, 11.7)
 t.fillcolor("#ceefee")
 t.end_fill()
 
-#re-outline the nose
+#re-outline the nose due to filling that may overlap
 pos(-22, 47)
 drawLine(250, 60)
 drawLine(50, -80)
-
 
 #draw right eye
 eyes(-10,-120,25,1.2)
 t.right(100)
 
-#fill under the nose
+#fill colour under the nose
 pos(-150, -183)
 t.begin_fill()
+#draw the outline to fill under the nose right here
 drawLine(135, 205, "")
 drawLine(130, 155, "")
 drawLine(55, 100, "")
 t.fillcolor("#ceefee")
 t.end_fill()
-
 
 #draw the mouth
 t.pencolor('black')
@@ -259,7 +249,7 @@ t.right(7)
 t.pensize(3)
 drawParabola(5, +1)
 
-#finish up the bottom now
+#finish up the bottom designs for the neck
 t.pensize(5)
 pos(-170, -350)
 t.begin_fill()
@@ -276,7 +266,7 @@ pos(-362, -70)
 t.right(120)
 drawCurl(16, 8)
 
-#draw the fingers
+#draw and colour the fingers on the bottom
 t.pensize(5)
 pos(-275, -350)
 drawLine(15, 90)
@@ -298,11 +288,11 @@ drawLine(24)
 t.circle(8, 180)
 drawLine(24, 5)
 
-#finish up that last hair outline
+#finish up drawing that last hair outline
 pos(-277, -275)
 drawLine(75, 100)
 
-#draw the lines to connect the last hair
+#draw the lines to connect the girl's ear and fill it
 t.penup()
 t.home()
 pos(-23, 47)
