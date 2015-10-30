@@ -80,15 +80,6 @@ def drawCurl(size, bend = 1, direction = -1):
         t.left(direction * sqrt(i))
         t.forward(bend)
 
-"""
-def drawCurve():  #square root function
-    for i in range(50):
-        t.left(90)
-        t.forward(math.sqrt(i))
-        t.right(90)
-        t.forward(i)
-"""
-
 def eyes(x,y,radius,size=2):
     pos(x,y)
     t.fillcolor('black')
@@ -117,19 +108,6 @@ def drawSquare(size):
         t.forward(size)
         t.right(90)
 
-def drawCurl(size, bend = 1, direction = -1):
-    t.pencolor('black')
-    for i in range(size):
-        t.left(direction * math.sqrt(i))
-        t.forward(bend)
-
-def drawCurve():  #square root function
-    for i in range(50):
-        t.left(90)
-        t.forward(math.sqrt(i))
-        t.right(90)
-        t.forward(i)
-
 def drawLine(length, direction = 0, color='black'):
     t.pencolor(color)
     t.left(direction)
@@ -146,7 +124,7 @@ t.bgcolor("#b27e1e")
 #begin drawing the left girl - coded by Eric
 
 t.speed(50)
-t.shape("turtle")
+#t.shape("turtle")
 
 #Prepare an area for colour fill at the end
 pos(-25, 50)
@@ -326,6 +304,24 @@ drawLine(24, 5)
 pos(-277, -275)
 drawLine(75, 100)
 
+#draw the lines to connect the last hair
+t.penup()
+t.home()
+pos(-23, 47)
+t.begin_fill()
+t.right(105)
+drawParabola(8, +1)
+drawCurl(25, 1, +1)
+t.penup()
+t.home()
+pos(4, -108)
+t.right(325)
+drawCurl(21, 5, +1)
+t.left(45)
+drawLine(105, 0, "")
+t.fillcolor('#40E0D0')
+t.end_fill()
+
 #end of the left girl
 
 
@@ -411,8 +407,6 @@ t.penup()
 t.home()
 pos(20, -275)
 drawRectangle(300, 75)
-
-
 
 """
 # Hide the turtle
