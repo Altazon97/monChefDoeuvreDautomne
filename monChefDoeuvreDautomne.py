@@ -11,10 +11,14 @@ The drawing will only feature the shoulders up, as shown in this image:
 http://www.lsa.umich.edu/UMICH/lsa/Home/LSA%20Today/2013/images/Picasso-1.jpg
 """
 
+#import the modules
+
 import turtle as t
 from turtle import *
 import math
 from math import *
+
+#define the functions
 
 def drawShape(shapeType, size, fillColor, colorOfPen, positionx = None, positiony = None, angle = 120, direction = 'forward'):
     t.penup()
@@ -314,10 +318,6 @@ t.end_fill()
 
 
 #begin drawing the right girl - coded by Andy
-
-# MAIN
-tracer(delay = None)
-t.pensize(5)
 
 # Draw the right hair
 t.penup()
