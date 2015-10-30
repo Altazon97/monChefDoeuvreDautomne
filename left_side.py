@@ -21,6 +21,7 @@ import turtle as t
 from turtle import *
 from math import *
 import math
+import time
 
 def drawShape(shapeType, size, fillColor, colorOfPen, positionx = None, positiony = None):
     t.penup()
@@ -233,8 +234,42 @@ t.begin_fill()
 drawLine(160, -5)
 drawLine(45, 120)
 drawLine(110, 80)
-t.fillcolor('#40E0D0')
+t.fillcolor('#ceefee')
 t.end_fill()
+
+#hair strand
+t.pensize(7)
+pos(-362, -70)
+t.right(120)
+drawCurl(16, 8)
+
+#draw the fingers
+t.pensize(5)
+pos(-275, -350)
+drawLine(15, 90)
+pos(-225, -350)
+drawCurl(13, 2, +1)
+pos(-210, -350)
+t.left(-50)
+t.begin_fill()
+drawCurl(7, 7, +1)
+t.right(155)
+drawLine(52)
+t.right(115)
+drawLine(27)
+t.fillcolor("#ce3737")
+t.end_fill()
+pos(-170, -320)
+t.right(83)
+drawLine(24)
+t.circle(8, 180)
+drawLine(24, 5)
+
+#finish up that last hair outline
+
+pos(-277, -275)
+drawLine(75, 100)
+
 
 #display the work of art
 done()
