@@ -156,13 +156,9 @@ pos(-220, -30)
 t.left(120)
 drawCurl(40, 4, +1)
 
-pos(-60, -120)
-t.left(-170)
-t.circle(25, 160)
-
-
-#oulining the lighter green fill area
-t.left(218)
+#begin oulining the same area again, to fill for lighter green
+t.pencolor("")
+t.left(208)
 pos(-140, -325)
 t.left(236)
 drawCurl(15)
@@ -171,15 +167,35 @@ t.left(-80)
 drawCurl(10, 20)
 t.circle(50, 50)
 t.left(215)
+#fill from this spot right here
+t.begin_fill()
 drawParabola(8, +1)
 drawCurl(25, 1, +1)
 t.right(90)
 drawCurl(5, 1)
 drawCurl(24, 11.7)
+t.fillcolor("#ceefee")
+t.end_fill()
 
+#re-outline the nose
+pos(-22, 47)
+drawLine(250, 60)
+drawLine(50, -80)
 
-#fill color to use later: #ceefee
+#right eye
+pos(-60, -120)
+t.left(-260)
+t.circle(25, 160)
 
+#fill under the nose
+t.begin_fill()
+t.pensize(3)
+pos(-150, -183)
+drawLine(135, 205, "")
+drawLine(130, 155, "")
+drawLine(53, 100, "")
+t.fillcolor("#ceefee")
+t.end_fill()
 
 #display the work of art
 done()
