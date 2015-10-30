@@ -2,7 +2,8 @@
 monChefDoeuvreDautomne.py,
 
 Eric Sund
-Oct 23 2015
+Andy Zeng
+Oct 30 2015
 
 This program creates a drawing using the Python Turtle Graphics module.
 """
@@ -44,8 +45,6 @@ def drawShape(shapeType, size, fillColor, colorOfPen, positionx = None, position
         drawDecagon(size)
     elif shapeType == 'parallelogram':
         drawParallelogram(size, angle)
-    elif shapeType == 'parallelogram1': # for determining position
-        drawParallelogram1(size, angle)
     elif shapeType == 'curl':
         drawCurl(size, direction)
     t.end_fill()
@@ -65,14 +64,6 @@ def drawParallelogram(size, angle):
         t.left(angle)
         t.forward(size)
         t.left(180 - angle)
-
-def drawParallelogram1(size, angle):  #for determining position
-    for i in range (1):
-        t.forward(size)
-        t.left(angle)
-        t.forward(size)
-        t.left(180 - angle)
-        t.forward(size)
 
 def drawRectangle(x, y):
     t.forward(x)
@@ -236,9 +227,10 @@ drawLine(9)
 pos(-22, 47)
 drawLine(250, -40)
 drawLine(50, -80)
-pos(-220, -30)
-t.left(120)
-drawCurl(40, 4, +1)
+
+#draw left eye
+eyes(-120,-38.68, 45, 1.2)
+t.right(74.5)
 
 #begin oulining the same area again, to fill for lighter green!
 t.pencolor("")
@@ -266,10 +258,10 @@ pos(-22, 47)
 drawLine(250, 60)
 drawLine(50, -80)
 
-#right eye
-pos(-60, -120)
-t.left(-260)
-t.circle(25, 160)
+
+#draw right eye
+eyes(-10,-120,25,1.2)
+t.right(100)
 
 #fill under the nose
 pos(-150, -183)
@@ -336,6 +328,7 @@ drawLine(75, 100)
 
 #end of the left girl
 
+
 #begin drawing the right girl - coded by Andy
 
 t.tracer(n = None, delay = None)
@@ -395,6 +388,7 @@ t.end_fill()
 # Draw left shoulder
 t.fillcolor('#E1D849')
 t.begin_fill()
+
 t.goto(40,-258.40)      # End at girl on the left
 t.goto(-14.73,-158.40)  # End at left edge of parallelogram
 t.end_fill()
@@ -417,7 +411,7 @@ t.penup()
 t.home()
 pos(20, -275)
 drawRectangle(300, 75)
-t.register_shape("credits.gif")
+
 
 
 """
