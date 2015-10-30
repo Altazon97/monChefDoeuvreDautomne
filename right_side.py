@@ -2,9 +2,12 @@
 monChefDoeuvreDautomne.py,
 
 Eric Sund
-Oct 23 2015
+Andy Zeng
+Oct 29 2015
 
-This program creates a drawing using the Python Turtle Graphics module.
+This program uses the Python Turtle Graphics Module in an attempt to draw a truncated version of Picasso's "Deux Enfants Lisant" painting.
+The drawing will only feature the shoulders up, as shown in this image: 
+http://www.lsa.umich.edu/UMICH/lsa/Home/LSA%20Today/2013/images/Picasso-1.jpg
 """
 
 """
@@ -16,11 +19,13 @@ This program creates a drawing using the Python Turtle Graphics module.
 3 void functions
 
 """
+
 import math as m
 import turtle as t
 from turtle import *
 from math import *
 
+t.tracer(n = None, delay = None)
 
 def drawShape(shapeType, size, fillColor, colorOfPen, positionx = None, positiony = None, angle = 120, direction = 'forward'):
     t.penup()
@@ -49,6 +54,7 @@ def drawShape(shapeType, size, fillColor, colorOfPen, positionx = None, position
     elif shapeType == 'curl':
         drawCurl(size, direction)
     t.end_fill()
+    
 
 def drawCircle(size):
     t.circle(size)
@@ -98,13 +104,18 @@ def drawDecagon(size):
         t.left(36)
         t.forward(size)
 
-def drawCurl(size, direction = 'forward'):
+def drawCurl(size, bend = 1, direction = -1):
+    t.pencolor('black')
     for i in range(size):
-        t.left(-1 * m.sqrt(i))
-        if direction == 'forward':
-            t.forward(5)
-        elif direction == 'backward':
-            t.backward(5)
+        t.left(direction * sqrt(i))
+        t.forward(bend)
+
+def drawCurve():  #square root function
+    for i in range(50):
+        t.left(90)
+        t.forward(math.sqrt(i))
+        t.right(90)
+        t.forward(i)
 
 def drawLine(length = 50, direction = 0):
     t.pencolor('black')
@@ -115,6 +126,17 @@ def drawParabola(size):
     for i in range(size):
         t.left(-1 * i)
         t.forward(m.pow(i, 2))
+
+def eyes(x,y,radius,size=2):
+    pos(x,y)
+    t.fillcolor('black')
+    t.begin_fill()
+    x = x - radius  # our chosen position is the top right edge
+    for i in range(60):  #over 60 slices
+        t.goto(x+radius*cos(i*pi/60), y - radius*sin(i*pi/60))
+    for i in range(60):  #over 60 slices
+        t.goto(x-radius*cos(i*pi/60), y - radius/size*sin(i*pi/60))
+    t.end_fill()
 
 def pos(x, y):
     t.penup()
@@ -131,38 +153,76 @@ def move(size):
 tracer(delay = None)
 t.shape("turtle")
 t.pensize(5)
+t.bgcolor('#BB8228')
 
-# Draw Head and neck 
-t.left(-30)
-drawShape('parallelogram', 200, "green4", 'black', positionx = 0, positiony = 10, angle = 85)
-move(200)
-drawShape('parallelogram', 200, "green4", 'black', angle = -130)
+# Draw the right hair
+pos(115,145)            # Starting point
+t.left(5)               ### ASSUMES THAT WE START ENTIRELY FACING RIGHT
+t.begin_fill()
+drawCurl(33, 15, -1)
+t.goto(346.41,-190.00)  # End by shoulder
+t.goto(215,-37)         # Close the shape
+t.fillcolor('#723D39')
+t.end_fill()
+t.left(70)
+pos(287.92,73.83)       # Start at right edge of face
+drawCurl(16, 10, -1)    # Groove in her hair
+t.goto(346.41,-190.00)  # End by shoulder
+
+# Draw the left hair
+pos(115,145)            # Starting point          
+t.right(150)            
+t.begin_fill()
+drawCurl(20, 5, +1)     # Initial curve for hair 
+drawCurl(22, 3, +1)     # Tight turn 
+drawCurl(21, 7, +1)     # Smooth out the curve
+t.goto(0,10)            # End at left edge of face
+t.fillcolor('#723D39')
+t.end_fill()
+
+# Draw Head and neck
+pos(0,10)
+t.fillcolor('#698066')
+t.begin_fill()
+t.goto(173.21,-90.00)   # Using goto(x,y) for head because parallelogram is entirely assymetrical 
+t.goto(287.92,73.83)
+t.goto(80,160)
+t.goto(0,10)
+t.end_fill()
+pos(173.21,-90.00)      # Return to the chin in order to draw neck
+t.left(24)
+drawShape('parallelogram', 200, '#698066', 'black', angle = -130)   # Neck; may as well use the function
 move(200)
 
 # Draw right shoulder
-t.fillcolor('yellow')
+t.fillcolor('#E1D849')
 t.begin_fill()
-drawCurl(18)
-t.goto(158.47,-258.40)
+drawCurl(18,5)          # End at same horizontal plane as parallelogram
+t.goto(158.47,-258.40)  # Close shape at bottom of parallelogram
 t.end_fill()
 
-
-# Draw left side
-t.fillcolor('yellow')
+# Draw left shoulder
+t.fillcolor('#E1D849')
 t.begin_fill()
-t.goto(28,-258.40)
-t.goto(-14.73,-158.40)
-t.goto(158.47,-258.40)
+t.goto(40,-258.40)      # End at girl on the left
+t.goto(-14.73,-158.40)  # End at left edge of parallelogram 
 t.end_fill()
 
+# Draw the eyes
+eyes(85,40,30,1.2)
+eyes(260,80,30,1.2)
 
-"""
-for i in range(50):
-    t.left(90)
-    t.forward(math.sqrt(i))
-    t.right(90)
-    t.forward(i)
-"""
+# Draw the Nose
+pos(115,145)
+t.goto(100,-15)
+t.goto(140,0)
 
-#display the work of art
+# Draw the Mouth
+pos(135, -40)
+t.goto(175, -30)
+
+# Hide the turtle
+ht()
+
+# Display the work of art
 done()
