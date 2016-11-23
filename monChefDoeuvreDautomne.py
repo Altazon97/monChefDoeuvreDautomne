@@ -1,10 +1,7 @@
 """
 monChefDoeuvreDautomne.py
 
-Eric Sund   301284359
-Andy Zeng   301221527
-
-Oct 30 2015
+(c) 2016 Eric Sund; Andy Zeng
 
 This program uses the Python Turtle Graphics Module in an attempt to draw a truncated version of Picasso's "Deux Enfants Lisant" painting.
 The drawing will only feature the shoulders up, as shown in this image:
